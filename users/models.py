@@ -75,8 +75,12 @@ class User(AbstractBaseUser):
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+
+
 class Admin(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone=models.CharField(max_length=15)
