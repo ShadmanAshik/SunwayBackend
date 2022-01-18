@@ -83,5 +83,5 @@ class Admin(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone=models.CharField(max_length=15)
-    country=models.CharField(max_length=40)
+    # country=models.CharField(max_length=40)
     
