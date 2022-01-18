@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     'djoser',
 
     'users',
-    'contactForm',
+    'ContactForm',
+    'form'
 
 ]
 
@@ -85,15 +87,10 @@ WSGI_APPLICATION = 'sunwaybackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sunwayst_sunwa',
-        'USER': 'sunwayst_Admin',
-        'PASSWORD':'admin@3214',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -134,6 +131,8 @@ STATIC_ROOT = BASE_DIR/'static'
 STATICFILES_DIRS = [ 
     BASE_DIR / 'build' / 'static'
 ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -163,6 +162,7 @@ DJOSER = {
     
     'SERIALIZERS': {
         'user_create': "users.serializers.UserRegisterSerializer",
+        # 'user_create': "users.serializers.StudentRegisterSerializer",
         'user': "users.serializers.UserSerializer",
         'current_user': "users.serializers.UserSerializer",
     },
