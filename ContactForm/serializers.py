@@ -7,5 +7,4 @@ from .models import ContactFormData
 class ContactFormDataSerializer(serializers.ModelSerializer):
     class Meta:
         model=ContactFormData
-        fields=('id','fName', 'lName', 'email', 
-        'countryCode', 'phone','country','studyLevel','counselingMode' )
+        fields=('id','fName', 'lName', 'email','phone','country','studyLevel','counselingMode' )
