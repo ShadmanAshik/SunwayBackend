@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from djoser.serializers import UserCreateSerializer
+from pyexpat import model
 from rest_framework import serializers
 
 from users.models import *
@@ -35,6 +36,33 @@ class UserRegisterSerializer(UserCreateSerializer):
     
     class Meta(UserCreateSerializer.Meta):
         fields = ['name', 'email', 'is_agent', 'password', 're_password', 'is_student']
+
+
+
+
+# class StudentRegisterSerializer(UserCreateSerializer):
+#     model=Student
+
+#     def create(self, validate_data):
+#         is_agent = validate_data.pop('is_agent', False)
+#         is_student = validate_data.pop('is_student', False)
+        
+
+#         user = super().create(validate_data)
+#         if is_agent:
+#             user.is_agent = True 
+#             Agent.objects.create(user=user)
+            
+#         elif is_student:
+#             user.is_student = True 
+#             Student.objects.create(user=user)
+#         user.save()
+
+#         return user 
+
+#     class Meta(UserCreateSerializer.Meta):
+#         fields = ['name', 'email', 'password' ,'phone','country' ]
+
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -41,7 +41,6 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    date_of_birth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
@@ -84,3 +83,5 @@ class Admin(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone=models.CharField(max_length=15)
+    country=models.CharField(max_length=40)
+    
