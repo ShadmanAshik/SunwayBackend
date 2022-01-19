@@ -66,9 +66,25 @@ class DevelopingSkillsView(APIView):
         if DevelopingSkills.is_valid():
             DevelopingSkills.save()
             return Response(DevelopingSkills.data, status=status.HTTP_201_CREATED)
-        
+
         return Response(DevelopingSkills.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def get(self, request):
-        DevelopingSkillss =DevelopingSkillsView(DevelopingSkills.objects.all(), many=True) 
+        DevelopingSkillss =DevelopingSkillsSerializer(DevelopingSkills.objects.all(), many=True) 
         return Response(DevelopingSkillss.data, status = status.HTTP_201_CREATED)
+
+class LanguageProficiencyView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+
+    def post(self, request):
+        LanguageProficiency = LanguageProficiencySerializer(data=request.data)
+        if LanguageProficiency.is_valid():
+            LanguageProficiency.save()
+            return Response(LanguageProficiency.data, status=status.HTTP_201_CREATED)
+
+        return Response(LanguageProficiency.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        LanguageProficiencyy =LanguageProficiencySerializer(LanguageProficiency.objects.all(), many=True) 
+        return Response(LanguageProficiencyy.data, status = status.HTTP_201_CREATED)

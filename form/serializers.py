@@ -24,15 +24,14 @@ class ScholarshipSerializer(serializers.ModelSerializer):
         model = Scholarship
         fields = ['id', 'fName','lName','email','phone','studywhen','studycountry','counselMode','studyLevel']
 
-
-class ContactUsSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    class Meta:
-        model = ContactUs
-        fields = ['id', 'name', 'email', 'phone','message']
-
 class DevelopingSkillsSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = DevelopingSkills
-        fields = ['id', 'fName','lName', 'email', 'phone','skill', 'counselMode', 'country']
+        fields = ['id', 'fName', 'lName', 'email', 'phone','skill','counselMode','country']
+
+class LanguageProficiencySerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = LanguageProficiency
+        fields = ['id', 'fName', 'lName', 'email','phone', 'language','counselMode','country']
