@@ -22,6 +22,7 @@ class SnippetView(APIView):
     def get(self, request):
         snippets = SnippetSerializer(Snippet.objects.all(), many=True) 
         return Response(snippets.data, status = status.HTTP_201_CREATED)
+<<<<<<< HEAD
 
 
 class ContactUsView(APIView):
@@ -142,3 +143,5 @@ class BusinessAgentiew(APIView):
     def get(self, request):
         BusinessAgents =BusinessAgentSerializer(BusinessAgent.objects.all(), many=True) 
         return Response(BusinessAgents.data, status = status.HTTP_201_CREATED)
+=======
+>>>>>>> 05a7b7f3179cb64f737e89aaaf86f47431f54670
