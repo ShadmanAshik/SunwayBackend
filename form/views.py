@@ -34,13 +34,8 @@ class ContactUsGetView(APIView):
     permission_classes = [IsAuthenticated,IsAdmin]
 
     def get(self, request):
-<<<<<<< HEAD
         ContactUss =ContactUsSerializer(ContactUs.objects.all(), many=True) 
-        return Response(ContactUss.data, status = status.HTTP_201_CREATED)
-=======
-        snippets = SnippetSerializer(Snippet.objects.all(), many=True) 
-        return Response(snippets.data, status = status.HTTP_201_CREATED)
->>>>>>> 707a7f48cc8ab53f655fefb1348074f2efe5fd95
+        return Response(ContactUss.data, status = status.HTTP_200_OK)
 
 
 class ContactUsPostView(APIView):
@@ -190,6 +185,27 @@ class BusinessAgentPostView(APIView):
 
 
 class BusinessAgentGetView(APIView):
+    authentication_classes = [TokenAuthentication] 
+    permission_classes = [IsAuthenticated,IsAdmin]
+    def get(self, request):
+        BusinessAgents =BusinessAgentSerializer(BusinessAgent.objects.all(), many=True) 
+        return Response(BusinessAgents.data, status = status.HTTP_201_CREATED)
+
+
+class CommonFormPostView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+
+    def post(self, request):
+        BusinessAgent = BusinessAgentSerializer(data=request.data)
+        if BusinessAgent.is_valid():
+            BusinessAgent.save()
+            return Response(BusinessAgent.data, status=status.HTTP_201_CREATED)
+        
+        return Response(BusinessAgent.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CommonFormGetView(APIView):
     authentication_classes = [TokenAuthentication] 
     permission_classes = [IsAuthenticated,IsAdmin]
     def get(self, request):

@@ -87,3 +87,10 @@ class BusinessAgent(AgentDataForm):
     businessNum=models.CharField(max_length=25)
     businessemail=models.CharField(max_length=200)
     businessAddress=models.CharField(max_length=200)
+
+
+class CommonForm(CommonFields):
+    studyLevel=models.CharField(max_length=25)
+    contry=models.CharField(max_length=25)
+    counselMode=models.CharField(max_length=25)
+    
