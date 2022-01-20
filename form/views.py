@@ -34,8 +34,13 @@ class ContactUsGetView(APIView):
     permission_classes = [IsAuthenticated,IsAdmin]
 
     def get(self, request):
+<<<<<<< HEAD
         ContactUss =ContactUsSerializer(ContactUs.objects.all(), many=True) 
         return Response(ContactUss.data, status = status.HTTP_201_CREATED)
+=======
+        snippets = SnippetSerializer(Snippet.objects.all(), many=True) 
+        return Response(snippets.data, status = status.HTTP_201_CREATED)
+>>>>>>> 707a7f48cc8ab53f655fefb1348074f2efe5fd95
 
 
 class ContactUsPostView(APIView):
@@ -89,6 +94,23 @@ class DevelopingSkillsGetView(APIView):
     def get(self, request):
         DevelopingSkillss =DevelopingSkillsSerializer(DevelopingSkills.objects.all(), many=True) 
         return Response(DevelopingSkillss.data, status = status.HTTP_201_CREATED)
+
+
+class LanguageProficiencyView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+
+    def post(self, request):
+        LanguageProficiency = LanguageProficiencySerializer(data=request.data)
+        if LanguageProficiency.is_valid():
+            LanguageProficiency.save()
+            return Response(LanguageProficiency.data, status=status.HTTP_201_CREATED)
+        
+        return Response(LanguageProficiency.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request):
+        LanguageProficiencyy =LanguageProficiencySerializer(LanguageProficiency.objects.all(), many=True) 
+        return Response(LanguageProficiencyy.data, status = status.HTTP_201_CREATED)
 
 
 
