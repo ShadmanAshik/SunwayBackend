@@ -68,7 +68,11 @@ class BusinessAgentSerializer(serializers.ModelSerializer):
         fields = ['id', 'fName', 'lName', 'email', 'phone' ]
 
 
-
+class CommonFormSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = CommonForm
+        fields = ['id', 'fName', 'lName', 'email', 'phone','studyLevel','counselMode','country' ]
 
 
 
