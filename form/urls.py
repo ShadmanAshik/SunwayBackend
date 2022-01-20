@@ -4,7 +4,7 @@ from form.views import *
 
 app_name="form"
 urlpatterns = [ 
-    path('snippets/', SnippetView.as_view(), name="snippets"),
+    # path('snippets/', SnippetView.as_view(), name="snippets"),
     path('contactus/', ContactUsView.as_view(), name="contactus"),
     path('scholarship/', ScholarshipView.as_view(), name="Scholarship"),
     path('skilldev/', DevelopingSkillsView.as_view(), name="skilldev"),
