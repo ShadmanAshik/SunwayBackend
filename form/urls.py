@@ -4,23 +4,19 @@ from form.views import *
 
 app_name="form"
 urlpatterns = [ 
-    path('snippets/', SnippetView.as_view(), name="snippets"),
-    path('contactus/', ContactUsView.as_view(), name="contactus"),
-    path('scholarship/', ScholarshipView.as_view(), name="Scholarship"),
-    path('skilldev/', DevelopingSkillsView.as_view(), name="skilldev"),
-    path('betutor/', BecomeTutorView.as_view(), name="betutor"),
-    path('looktutor/', LookingTutorView.as_view(), name="looktutor"),
-    path('individualagent/', AgentDataFormView.as_view(), name="individualagent"),
-    path('businessagent/', BusinessAgentiew.as_view(), name="businessagent"),
+    # path('snippets/', SnippetView.as_view(), name="snippets"),
+    path('contactusget/', ContactUsGetView.as_view(), name="contactusget"),
+    path('contactuspost/', ContactUsPostView.as_view(), name="contactuspost"),
+    path('scholarshipget/', ScholarshipGetView.as_view(), name="Scholarship"),
+    path('scholarshippost/', ScholarshipPostView.as_view(), name="Scholarship"),
+    path('skilldevget/', DevelopingSkillsGetView.as_view(), name="skilldev"),
+    path('skilldevpost/', DevelopingSkillsPostView.as_view(), name="skilldev"),
+    path('betutorget/', BecomeTutorGetView.as_view(), name="betutor"),
+    path('betutorpost/', BecomeTutorPostView.as_view(), name="betutor"),
+    path('looktutorget/', LookingTutorGetView.as_view(), name="looktutor"),
+    path('looktutorpost/', LookingTutorPostView.as_view(), name="looktutor"),
+    path('individualagentget/', AgentDataFormGetView.as_view(), name="individualagent"),
+    path('individualagentpost/', AgentDataFormPostView.as_view(), name="individualagent"),
+    path('businessagentget/', BusinessAgentGetView.as_view(), name="businessagent"),
+    path('businessagentpost/', BusinessAgentPostView.as_view(), name="businessagent"),
 ]
-
-# from django.urls import include, path
-# from rest_framework import routers
-
-# from form.views import *
-
-# router=routers.DefaultRouter()
-# router.register(r'Contactformdata',ContactFormDataViewSet)
-# urlpatterns=[
-#     path('',include(router.urls))
-# ]

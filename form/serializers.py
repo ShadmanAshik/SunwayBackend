@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from form.models import *
 
-<<<<<<< HEAD
 # class SnippetSerializer(serializers.ModelSerializer):
 #     id = serializers.IntegerField(read_only=True)
 #     class Meta:
@@ -63,11 +62,3 @@ class BusinessAgentSerializer(serializers.ModelSerializer):
 
 
 
-=======
-
-class SnippetSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    class Meta:
-        model = Snippet
-        fields = ['id', 'name', 'photo']
->>>>>>> 05a7b7f3179cb64f737e89aaaf86f47431f54670
