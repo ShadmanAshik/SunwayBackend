@@ -49,6 +49,7 @@ class ContactUsPostView(APIView):
         
         return Response(ContactUs.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ScholarshipPostView(APIView):
     authentication_classes = [] 
     permission_classes = []
@@ -160,12 +161,12 @@ class AgentDataFormPostView(APIView):
     permission_classes = []
 
     def post(self, request):
-        AgentDataForm = AgentDataFormSerializer(data=request.data)
-        if AgentDataForm.is_valid():
-            AgentDataForm.save()
-            return Response(AgentDataForm.data, status=status.HTTP_201_CREATED)
+        agent_serializer = IndivisualAgentSerializer(data=request.data)
+        if agent_serializer.is_valid():
+            agent_serializer.save()
+            return Response(agent_serializer.data, status=status.HTTP_201_CREATED)
         
-        return Response(AgentDataForm.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(agent_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AgentDataFormGetView(APIView):
     authentication_classes = [TokenAuthentication] 
@@ -215,3 +216,24 @@ class CommonFormGetView(APIView):
     def get(self, request):
         CommonForms =CommonFormSerializer(CommonForm.objects.all(), many=True) 
         return Response(CommonForms.data, status = status.HTTP_201_CREATED)
+
+
+class AdmissionFormPostView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+
+    def post(self, request):
+        AdmissionForm = AdmissionFormSerializer(data=request.data)
+        if AdmissionForm.is_valid():
+            AdmissionForm.save()
+            return Response(AdmissionForm.data, status=status.HTTP_201_CREATED)
+        
+        return Response(AdmissionForm.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AdmissionFormGetView(APIView):
+    authentication_classes = [TokenAuthentication] 
+    permission_classes = [IsAuthenticated,IsAdmin]
+    def get(self, request):
+        AdmissionForms =AdmissionFormSerializer(AdmissionForm.objects.all(), many=True) 
+        return Response(AdmissionForms.data, status = status.HTTP_201_CREATED)
