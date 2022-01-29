@@ -62,11 +62,11 @@ class BecomeTutor(CommonFields):
 class LookingTutor(models.Model):
     yourName=models.CharField(max_length=200)
     studentName=models.CharField(max_length=200)
-    email=models.CharField(max_length=200)
+    email=models.CharField(max_length=200, blank=True, null=True)
     phone=models.CharField(max_length=25)
     address=models.CharField(max_length=200)
     medium=models.CharField(max_length=40)
-    requirements=models.TextField(max_length=800)
+    requirements=models.TextField(max_length=800, blank=True, null=True)
     Class=models.CharField(max_length=200)
     institution=models.CharField(max_length=200)
 
