@@ -9,7 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('djoser.urls')),
     path('accounts/', include('djoser.urls.authtoken')),
-    path('cfd/',include('ContactForm.urls')),
     path('form/', include('form.urls')),
     
 ]+ [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

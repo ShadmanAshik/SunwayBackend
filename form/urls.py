@@ -23,4 +23,7 @@ urlpatterns = [
     path('businessagentpost/', BusinessAgentPostView.as_view(), name="businessagent"),
     path('languageget/', LanguageProficiencyGetView.as_view(), name="language"),
     path('languagepost/', LanguageProficiencyPostView.as_view(), name="language"),
+    path('admissionget/', AdmissionFormGetView
+    .as_view(), name="admission"),
+    path('admissionpost/', AdmissionFormPostView.as_view(), name="admission"),
 ]

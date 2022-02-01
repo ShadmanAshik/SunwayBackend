@@ -65,7 +65,7 @@ class BusinessAgentSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = BusinessAgent
-        fields = ['id', 'fName', 'lName', 'email', 'phone' ]
+        fields = ['id', 'fName', 'lName', 'email', 'phone','businessName','tradeNum', 'businessAddress','businessNum','businessemail','agentphoto','agentnid','tradelicense','tinbin']
 
 
 class CommonFormSerializer(serializers.ModelSerializer):
@@ -75,4 +75,52 @@ class CommonFormSerializer(serializers.ModelSerializer):
         fields = ['id', 'fName', 'lName', 'email', 'phone','studyLevel','counselMode','country' ]
 
 
+class AdmissionFormSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = AdmissionForm
+        fields = [
+            'id',
+    'profilephoto',
+    'fName',
+    'lName',
+    'passportno',
+    'passportExpireDate',
+    'nationality',
+    'nID_birthNumber',
+    'gender',
+    'dateofbirth',
+    'placeofbirth',
+    'maritalstatus',
+    'email',
+    'phone',
+    'homeaddress',
+    'homephone',
+    'applyuniveristy',
+    'majorsub',
+    'profession',
+    'language',
+    'fathername',
+    'mothername',
+    'fatheremployement',
+    'motheremployement',
+    'fathernumber',
+    'mothernumber',
+    'passportscan',
+    'academiccertificate',
+    'transcript',
+    'bankstatement',
+    'recommendationletter',
+    'recommendationletter2',
+    'recommendationletter3',
+    'studyplan',
+        ]
 
+
+
+class IndivisualAgentSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = IndivisualAgent
+        fields = ['id', 'fName', 'lName', 'email', 'phone', 'agentphoto','agentnid','academicCertificate']
+    

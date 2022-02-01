@@ -12,3 +12,7 @@ admin.site.register(BusinessAgent)
 admin.site.register(LanguageProficiency)
 admin.site.register(DevelopingSkills)
 admin.site.register(CommonForm)
+admin.site.register(AdmissionForm)
+admin.site.register(IndivisualAgent)
+
+
