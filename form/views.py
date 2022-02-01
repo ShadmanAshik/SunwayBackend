@@ -156,24 +156,24 @@ class LookingTutorGetView(APIView):
         return Response(LookingTutors.data, status = status.HTTP_201_CREATED)
 
 
-class AgentDataFormPostView(APIView):
+class IndivisualAgentPostView(APIView):
     authentication_classes = [] 
     permission_classes = []
 
     def post(self, request):
-        agent_serializer = IndivisualAgentSerializer(data=request.data)
-        if agent_serializer.is_valid():
-            agent_serializer.save()
-            return Response(agent_serializer.data, status=status.HTTP_201_CREATED)
+        IndivisualAgent = IndivisualAgentSerializer(data=request.data)
+        if IndivisualAgent.is_valid():
+            IndivisualAgent.save()
+            return Response(IndivisualAgent.data, status=status.HTTP_201_CREATED)
         
-        return Response(agent_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(BusinessAgent.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AgentDataFormGetView(APIView):
+class IndivisualAgentGetView(APIView):
     authentication_classes = [TokenAuthentication] 
-    permission_classes = [IsAuthenticated,IsAdmin]    
+    permission_classes = [IsAuthenticated,IsAdmin]
     def get(self, request):
-        AgentDataForms =AgentDataFormSerializer(AgentDataForm.objects.all(), many=True) 
-        return Response(AgentDataForms.data, status = status.HTTP_201_CREATED)
+        IndivisualAgents =IndivisualAgentSerializer(IndivisualAgent.objects.all(), many=True) 
+        return Response(IndivisualAgents.data, status = status.HTTP_201_CREATED)
 
 
 class BusinessAgentPostView(APIView):
