@@ -76,9 +76,9 @@ class AgentDataForm(models.Model):
     country=models.CharField(max_length=200)
     city=models.CharField(max_length=200)
     state=models.CharField(max_length=200)
-    webaddress=models.CharField(max_length=200)
-    whatsappnumber=models.CharField(max_length=25)
-    bestway=models.CharField(max_length=200)
+    webaddress=models.CharField(max_length=200,blank=True,null=True)
+    whatsappnumber=models.CharField(max_length=25,blank=True,null=True)
+    bestway=models.CharField(max_length=200,blank=True,null=True)
     agentType=models.CharField(max_length=40)
 
 

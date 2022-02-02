@@ -1,3 +1,5 @@
+from dataclasses import fields
+
 from rest_framework import serializers
 
 from form.models import *
@@ -14,113 +16,76 @@ class ContactUsSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = ContactUs
-        fields = ['id', 'name', 'email', 'phone','message']
+        fields ='__all__'
 
 
 class ScholarshipSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = Scholarship
-        fields = ['id', 'fName','lName','email','phone','studywhen','studycountry','counselMode','studyLevel']
+        fields ='__all__'
 
 
 class DevelopingSkillsSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = DevelopingSkills
-        fields = ['id', 'fName', 'lName', 'email', 'counselMode','phone','skill','country']
+        fields ='__all__'
 
 
 class LanguageProficiencySerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = LanguageProficiency
-        fields = ['id', 'fName', 'lName', 'email','phone', 'language','counselMode','country']
+        fields ='__all__'
         
 class BecomeTutorSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = BecomeTutor
-        fields = ['id', 'fName', 'lName', 'email','phone', 'address','city',
-        'degreeobtained','EducationOrganization','EducationBackground',
-        'gender','tuitionarea', ]
+        fields ='__all__'
 
 
 class LookingTutorSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = LookingTutor
-        fields = ['id', 'yourName', 'studentName', 'email', 'phone','address',
-        'medium','requirements', 'Class', 'institution' ]
+        fields ='__all__'
 
 
-class AgentDataFormSerializer(serializers.ModelSerializer):
+# class AgentDataFormSerializer(serializers.ModelSerializer):
+#     id = serializers.IntegerField(read_only=True)
+#     class Meta:
+#         model = AgentDataForm
+#         fields = ['id', 'fName', 'lName', 'email', 'phone']
+
+class IndivisualAgentSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
-        model = AgentDataForm
-        fields = ['id', 'fName', 'lName', 'email', 'phone']
-
-
+        model = IndivisualAgent
+        fields ='__all__'
+ 
+    
 class BusinessAgentSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = BusinessAgent
-        fields = ['id', 'fName', 'lName', 'email', 'phone','businessName','tradeNum', 'businessAddress','businessNum','businessemail','agentphoto','agentnid','tradelicense','tinbin']
+        fields ='__all__'
 
 
 class CommonFormSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = CommonForm
-        fields = ['id', 'fName', 'lName', 'email', 'phone','studyLevel','counselMode','country' ]
+        fields ='__all__'
 
 
 class AdmissionFormSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     class Meta:
         model = AdmissionForm
-        fields = [
-            'id',
-    'profilephoto',
-    'fName',
-    'lName',
-    'passportno',
-    'passportExpireDate',
-    'nationality',
-    'nID_birthNumber',
-    'gender',
-    'dateofbirth',
-    'placeofbirth',
-    'maritalstatus',
-    'email',
-    'phone',
-    'homeaddress',
-    'homephone',
-    'applyuniveristy',
-    'majorsub',
-    'profession',
-    'language',
-    'fathername',
-    'mothername',
-    'fatheremployement',
-    'motheremployement',
-    'fathernumber',
-    'mothernumber',
-    'passportscan',
-    'academiccertificate',
-    'transcript',
-    'bankstatement',
-    'recommendationletter',
-    'recommendationletter2',
-    'recommendationletter3',
-    'studyplan',
-        ]
+        fields ='__all__'
 
 
 
-class IndivisualAgentSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    class Meta:
-        model = IndivisualAgent
-        fields = ['id', 'fName', 'lName', 'email', 'phone', 'agentphoto','agentnid','academicCertificate']
-    
+
