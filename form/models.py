@@ -1,10 +1,3 @@
-# from distutils.command.upload import upload
-# from re import L
-# from turtle import mode
-
-# from asyncio.windows_events import NULL
-# from distutils.archive_util import make_zipfile
-# from turtle import mode
 
 from django.db import models
 
