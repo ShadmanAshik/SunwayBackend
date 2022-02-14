@@ -1,3 +1,6 @@
+from multiprocessing import AuthenticationError
+from multiprocessing.sharedctypes import Value
+
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
@@ -13,10 +16,10 @@ from editor.serializers import *
 
 
 class RichEditorView(APIView):
-    authentication_classes = [TokenAuthentication] 
-    permission_classes = [IsAuthenticated,IsAdmin]
-
-
+    authentication_classes = [] 
+    permission_classes = []
+# TokenAuthentication
+# IsAuthenticated,IsAdmin
     def post(self, request):
         RichEditor = RichEditorSerializers(data=request.data)
         if RichEditor.is_valid():
@@ -27,5 +30,24 @@ class RichEditorView(APIView):
 
     def get(self, request):
 
-        RichEditors=RichEditorSerializers(RichEditor.objects.all(), many=True)
+        RichEditors=RichEditorSerializers(RichEditor.objects.last())
         return Response(RichEditors.data, status = status.HTTP_201_CREATED)
+
+from rest_framework import generics
+
+
+class RichEditorGen(generics.ListCreateAPIView):
+    serializer_class = RichEditorSerializers
+    queryset = RichEditor.objects.all()
+    permission_classes = [] 
+    authentication_classes = [] 
+
+    def get_queryset(self):
+        return RichEditor.objects.filter(title__icontains="Sagor")
+
+    def post(self, request, *args, **kwargs):
+        if not str(request.user.__class__) == 'AnonymousUser' and  request.user.is_admin:
+            print("Passes")
+        else:
+            raise ValueError 
+        return super().post(request, *args, **kwargs) 
