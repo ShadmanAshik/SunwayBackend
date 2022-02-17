@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 db.sqlite3
+media
+static
+=======
+db.sqlite3
+>>>>>>> 2582a9ebeb940ca482c660ae99f3c2d243d742f4
