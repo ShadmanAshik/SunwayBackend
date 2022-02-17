@@ -6,4 +6,5 @@ app_name="editor"
 urlpatterns = [ 
 
     path('post/', RichEditorView.as_view(), name="richeditor"),
+    path('esget/', EnglishSpokenEditorGetView.as_view(), name="esget"),
 ]

@@ -13,8 +13,8 @@ from editor.serializers import *
 
 
 class RichEditorView(APIView):
-    authentication_classes = [TokenAuthentication] 
-    permission_classes = [IsAuthenticated,IsAdmin]
+    authentication_classes = [] 
+    permission_classes = []
 
 
     def post(self, request):
@@ -27,5 +27,22 @@ class RichEditorView(APIView):
 
     def get(self, request):
 
-        RichEditors=RichEditorSerializers(RichEditor.objects.all(), many=True)
+        RichEditors=RichEditorSerializers(RichEditor.objects.last())        
         return Response(RichEditors.data, status = status.HTTP_201_CREATED)
+
+class EnglishSpokenEditorGetView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+    def get(self, request):
+        list=[]
+        contents=RichEditorSerializers(RichEditor.objects.all())
+        
+        for content in contents:
+            if content.data.pgName == "English Spoken":
+                list.append(content)                
+        es=list.pop()            
+        return Response(es.data, status = status.HTTP_201_CREATED)
+
+
+
+
